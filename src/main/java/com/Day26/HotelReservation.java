@@ -11,6 +11,7 @@ import java.util.Scanner;
  * We have created this class to add the services of the hotel
  * [1] In this method we will add the hotel to the ArrayList
  * [2] To display the hotel name and the details
+ * @author Tom
  *
  */
 public class HotelReservation {
@@ -25,14 +26,15 @@ public class HotelReservation {
 	 * @param weekendRateRegular -  we will pass the weekend rate for the regular customer
 	 * @return
 	 */
-	public void addHotel(String hotelName, int rating, double regularCustomerRate) {
+	
+	public void addHotel(String hotelName, int rating, double weekdayRegularCustomerCost, double weekendRegularCustomerCost) {
 		Hotel hotel = new Hotel();
-		hotel.setHotelName(hotelName);
-		hotel.setRating(rating);
-		hotel.setRegularCustomerCost(regularCustomerRate);
-
-		hotelList.add(hotel);
-	}
+			hotel.setHotelName(hotelName);
+			hotel.setRating(rating);
+			hotel.setWeekdayRegularCustomerCost(weekdayRegularCustomerCost);
+			hotel.setWeekendRegularCustomerCost(weekendRegularCustomerCost);
+			hotelList.add(hotel);
+		}
 	
 	/**
 	 * [2] To display the hotel name and the details
@@ -65,7 +67,7 @@ public class HotelReservation {
 	public Hotel getCheapestHotel(LocalDate startDate, LocalDate endDate) {
 
 		long numberOfDays = ChronoUnit.DAYS.between(startDate, endDate);
-	    Optional<Hotel> sortedHotelList = hotelList.stream().min(Comparator.comparing(Hotel::getRegularCustomerCost));
+		Optional<Hotel> sortedHotelList = hotelList.stream().min(Comparator.comparing(Hotel::getWeekdayRegularCustomerCost));
 		return sortedHotelList.get();
 	}
 }
