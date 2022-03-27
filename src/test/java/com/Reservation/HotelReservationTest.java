@@ -6,7 +6,6 @@ import java.util.ArrayList;
 
 import org.junit.Assert;
 import org.junit.Test;
-import static org.junit.Assert.*;
 
 import com.Day26.Hotel;
 import com.Day26.HotelReservation;
@@ -14,7 +13,6 @@ import com.Day26.HotelReservationException;
 
 /**
  * In this we are creating the test cases. If the hotel is added it will return true.
- *
  */
 public class HotelReservationTest {
 	@Test
