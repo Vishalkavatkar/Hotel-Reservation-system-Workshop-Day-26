@@ -4,10 +4,6 @@ import java.time.LocalDate;
 import java.time.Month;
 import java.util.Scanner;
 
-import java.time.LocalDate;
-import java.time.Month;
-import java.util.Scanner;
-
 /**
  * This is a main class.
  * In this we are adding and displaying the hotel details.
@@ -22,6 +18,9 @@ public class HotelReservationMain {
 		
 		hotelReservation.printHotelList();
 		
-	
+		LocalDate startDate = LocalDate.of(2021, Month.SEPTEMBER, 11);
+		LocalDate endDate = LocalDate.of(2021, Month.SEPTEMBER, 12);
+		Hotel hotel = hotelReservation.getBestRatedHotel("reward", startDate, endDate);
+		System.out.println(hotel);
 }
 }
